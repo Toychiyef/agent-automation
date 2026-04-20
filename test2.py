@@ -12,11 +12,7 @@ scope = [
 ]
 
 creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
-
-creds = ServiceAccountCredentials.from_json_keyfile_dict(
-    creds_json,
-    scope
-)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds_json), scope)
 
 client = gspread.authorize(creds)
 
