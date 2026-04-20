@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "citifuel",
+  "private_key_id": "387a0ec421a955c211f9805f23b7ab14f2e3f2b2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/NWN9MIhFGcXx\nGt6moTWMnJGnJ0bb7a8rnf8/0MS1BBJaj5HV077t4cpXVVGftisOrwCFuATtPjku\nSi/+/cBsnpnkNNl4fC5Nmd+1yv6+kVC3EU3qXIFRoSFRuOwWQcXgoDvlmOQ8/n5+\n6SADPCQWKzsCvVtnunJWnICWPhClW+TiP4nvI6UMm109wNExbVv7YnJ9tsha1pCy\n/wDJC0FyjtRPyOG40EAE+c/InBeUf9slylsUKSfWVNs/lhVvbVMfunlHz14QSHS5\nKI64RgPdFvXFgJo1DfqZVZQXiXVLCa2enchBlcjXWWfxmJZPE29z0hUGP75MuiHe\nibBSk/2jAgMBAAECggEAJoVH9MmZOmqV0Rv7rRAfLKPCSC2GffolZyEecinJ5znZ\nxLrVw4E0HtJ1JCEBH67gf8XL0iSfgXgepu+1Oaa/ZGKTWEE5aqeB4IpWYlZx+cxm\nuWrYCpX2S46tmrwpe9ZmWfmN95RUruEKdODcXSp5jqnI6qVhS8VpEX/X++ynB9jh\nTZHgJuZIQq9hxQ0o0npLmmcfmyou0kP1JZeQrcdQnJoTXfCUwhWYzURbMgmb07L6\nesEt+QwPfwB/qsya6qDmfgKU+A+T2VTeQjyk9E9gL4gOUSvjdn4Tk3dsEzHjTiBz\nC5d6HWgaTzi3TJzN3mUx4Ev5iozPtD5pGi3JT/AHkQKBgQDmM0lRJjZiJXJLACia\nuX5p0Ni0VKoYaU9tLigxtOrqgjbduNkR45JUBKJIaUt6med1uk03CLU8xlKx4MY+\nJNPmIB0lcrMu4ty85Tckeq+mos1U3E2U7LKO0jDvmLmQeNkOaUUime3VOF7D9E0z\njumobTBqWSAszUVEjr3voft/+QKBgQDUo2H+hhAyu5RnI5NAYjIIPMAIiHM9IR00\nqwDXFG/KU9tT8yx80EB7xwEF65AsuhcQhK60qrfAbHoremDmS1vremgzV7Agz8Fj\nlA5v+xMqPCnpBCWSRqPvwH4YadVVJPL/pq/2voMY/2wPKxwkvTIDQnhynGcXZqK7\nwaJOyBvJewKBgCm8XqyRywZcV651Zuc2fk7dCI0ZVIV8gmP/HFZ2wKin1x635tMx\neVQ2St3qCT8/LBHSJzG1KHbOVivd3tNhhfGRHPevJgF4LCErRaYdgD8sASJDluVL\nTMxMG4c1H1+sKV5Ng7VURySDRdstLdoNLRvWQBLn+cdlqAtX/eO2cIyxAoGATm8N\nwILXCr+iWAEJWeBesCcodn1OdKf4S+sf3jYNnkYcSvUR3eA7SOz49aQUhEsIIvGu\nN7oZGYNp9QupHomBmHSIZxfbQd8gaIi+YpPsV9Hla6w556Di65bHbF3tcQC2GZL0\nqUFQvjHJPDccpHidMBKetzf11u3m7PbZ1dF+Xm0CgYEAiLzjKNlvXwNIYYQY60Cz\nWFCSaC3f8IKih/1Xs8J9QbvN/9h/wzsbWxVdQboXv4iNZ34FprQTc/+0cYitMgzA\nj67LZ92MsQHjhRVzZ8F06MYJChqHnVfAi8Sl/WJ/y4rq1gqSkN67PPpV+U6tu7Gj\nIEkFg3XhsjmcdaMlsqr56gM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "citifuel@citifuel.iam.gserviceaccount.com",
+  "client_id": "103449828525770519866",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/citifuel%40citifuel.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
