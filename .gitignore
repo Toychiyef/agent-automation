@@ -1,0 +1,7 @@
+# Never commit the service account key!
+*.json
+*.xlsx
+__pycache__/
+*.pyc
+.env
+ 
