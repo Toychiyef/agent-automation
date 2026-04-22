@@ -138,4 +138,4 @@ output_ws.update(
     value_input_option='RAW'
 )                                          # write header + all rows fresh
 
-print("Done! Data uploaded to 'Cleaned' tab in Google Sheets.")
+print(f"Done {len(df)}! Data uploaded to 'Cleaned' tab in Google Sheets.")
