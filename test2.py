@@ -30,12 +30,13 @@ df['Date'] = pd.to_datetime(df['Date'], dayfirst=True)
 df['Customer Service Member'] = df['Customer Service Member'].str.strip()
 
 # # ── Filter allowed fleet agents ──
-# allowed_names = [
-#     "Tim", "David", "Mason", "Mike", "Eddy", "Alan",
-#     "Jeff", "Cassie", "Jane", "Daniel", "Tomas",
-#     "Dave", "Denis", "Mia", "Patrick", "Frank"
-# ]
-# df = df[df['Customer Service Member'].isin(allowed_names)]
+allowed_names = [
+    "Tim", "David", "Mason", "Mike", "Eddy", "Alan",
+    "Jeff", "Cassie", "Jane", "Daniel", "Tomas",
+    "Dave", "Denis", "Mia", "Patrick", "Frank", "Chris", 
+    "Alvin", "Enzo", "Marcus", "Nick", "Simon", "Tony", "Walter" 
+]
+df = df[df['Customer Service Member'].isin(allowed_names)]
 
 # ── Service points mapping ──
 service_points_map = {
@@ -89,32 +90,35 @@ agent_grades = {
     'Alan': 'B',  'Jeff': 'A',  'Cassie': 'C', 'Jane': 'C',
     'Daniel': 'C','Tomas': 'A', 'Dave': 'B',  'Denis': 'A',
     'Mia': 'C',   'Patrick': 'C','Frank': 'C', 'Tim': 'B',
+    'Alvin': 'O', 'Chris': 'O', 'Enzo': 'O', 'Marcus': 'O', 
+    'Nick': 'O', 'Simon': 'O', 'Tony': 'O', 'Walter': 'O'
 }
 df['Grade'] = df['Customer Service Member'].map(agent_grades).fillna(0)
 
 # ── Grade-based service points ──
 grade_service_points = {
-    'Eats'                      : (1.0, 1.0, 1.0),
-    'Truck Parking'             : (0.0, 1.0, 2.0),
-    'Truck Wash'                : (0.0, 1.0, 2.0),
-    'Parts purchase'            : (1.0, 2.0, 3.0),
-    'Tire Replacement'          : (1.0, 1.5, 2.0),
-    'Tire repair'               : (0.0, 1.5, 2.0),
-    'PMs'                       : (0.5, 1.0, 2.0),
-    'DOT inspection'            : (1.0, 2.0, 3.0),
-    'Dealership'                : (1.5, 2.5, 4.0),
-    'RS/Tire Replacement'       : (2.0, 4.0, 6.0),
-    'RS/Mechanical'             : (4.0, 6.0, 8.0),
-    'Towing'                    : (4.0, 7.0, 8.0),
-    'Tire Replacement/PMs'      : (1.0, 2.0, 4.0),
-    'Mechanical'                : (2.0, 3.0, 5.0),
-    'Diagnosting'               : (2.0, 3.0, 5.0),
-    'PMs/Mechanical'            : (4.0, 7.0, 8.0),
-    'Tire Replacement/Mechanical': (4.0, 7.0, 8.0),
+    'Eats'                      : (1.0, 1.0, 1.0, 0),
+    'Truck Parking'             : (0.0, 1.0, 2.0, 0),
+    'Truck Wash'                : (0.0, 1.0, 2.0, 0),
+    'Parts purchase'            : (1.0, 2.0, 3.0, 0),
+    'Tire Replacement'          : (1.0, 1.5, 2.0, 0),
+    'Tire repair'               : (0.0, 1.5, 2.0, 0),
+    'PMs'                       : (0.5, 1.0, 2.0, 0),
+    'DOT inspection'            : (1.0, 2.0, 3.0, 0),
+    'Dealership'                : (1.5, 2.5, 4.0, 0),
+    'RS/Tire Replacement'       : (2.0, 4.0, 6.0, 0),
+    'RS/Mechanical'             : (4.0, 6.0, 8.0, 0),
+    'Towing'                    : (4.0, 7.0, 8.0, 0),
+    'Tire Replacement/PMs'      : (1.0, 2.0, 4.0, 0),
+    'Mechanical'                : (2.0, 3.0, 5.0, 0),
+    'Diagnosting'               : (2.0, 3.0, 5.0, 0),
+    'PMs/Mechanical'            : (4.0, 7.0, 8.0, 0),
+    'Tire Replacement/Mechanical': (4.0, 7.0, 8.0, 0),
 }
-df['Points_A'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*3)[0])
-df['Points_B'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*3)[1])
-df['Points_C'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*3)[2])
+df['Points_A'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*4)[0])
+df['Points_B'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*4)[1])
+df['Points_C'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*4)[2])
+df['Points_D'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*4)[3])
 
 unmapped_agents = df[df['Grade'] == 0]['Customer Service Member'].dropna().unique()
 unmapped_services = df[df['Points_A'].isna()]['Service type'].dropna().unique()
