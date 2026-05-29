@@ -29,13 +29,13 @@ df['Date'] = pd.to_datetime(df['Date'], dayfirst=True)
 # ── Remove extra spaces ──
 df['Customer Service Member'] = df['Customer Service Member'].str.strip()
 
-# ── Filter allowed fleet agents ──
-allowed_names = [
-    "Tim", "David", "Mason", "Mike", "Eddy", "Alan",
-    "Jeff", "Cassie", "Jane", "Daniel", "Tomas",
-    "Dave", "Denis", "Mia", "Patrick", "Frank"
-]
-df = df[df['Customer Service Member'].isin(allowed_names)]
+# # ── Filter allowed fleet agents ──
+# allowed_names = [
+#     "Tim", "David", "Mason", "Mike", "Eddy", "Alan",
+#     "Jeff", "Cassie", "Jane", "Daniel", "Tomas",
+#     "Dave", "Denis", "Mia", "Patrick", "Frank"
+# ]
+# df = df[df['Customer Service Member'].isin(allowed_names)]
 
 # ── Service points mapping ──
 service_points_map = {
@@ -90,7 +90,7 @@ agent_grades = {
     'Daniel': 'C','Tomas': 'A', 'Dave': 'B',  'Denis': 'A',
     'Mia': 'C',   'Patrick': 'C','Frank': 'C', 'Tim': 'B',
 }
-df['Grade'] = df['Customer Service Member'].map(agent_grades)
+df['Grade'] = df['Customer Service Member'].map(agent_grades).fillna(0)
 
 # ── Grade-based service points ──
 grade_service_points = {
@@ -116,7 +116,7 @@ df['Points_A'] = df['Service type'].map(lambda x: grade_service_points.get(x, (n
 df['Points_B'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*3)[1])
 df['Points_C'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*3)[2])
 
-unmapped_agents   = df[df['Grade'].isna()]['Customer Service Member'].dropna().unique()
+unmapped_agents = df[df['Grade'] == 0]['Customer Service Member'].dropna().unique()
 unmapped_services = df[df['Points_A'].isna()]['Service type'].dropna().unique()
 if len(unmapped_agents):   print("Unmapped agents:",   unmapped_agents)
 if len(unmapped_services): print("Unmapped services:", unmapped_services)
