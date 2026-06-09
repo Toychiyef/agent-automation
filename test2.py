@@ -89,31 +89,31 @@ agent_grades = {
     'David': 'A', 'Mason': 'A', 'Mike': 'A', 'Eddy': 'A',
     'Alan': 'B',  'Jeff': 'A',  'Cassie': 'C', 'Jane': 'C',
     'Daniel': 'C','Tomas': 'A', 'Dave': 'B',  'Denis': 'A',
-    'Mia': 'C',   'Patrick': 'C','Frank': 'C', 'Tim': 'B',
+    'Mia': 'C',   'Patrick': 'B','Frank': 'C', 'Tim': 'B',
     'Alvin': 'O', 'Chris': 'O', 'Enzo': 'O', 'Marcus': 'O', 
-    'Nick': 'O', 'Simon': 'O', 'Tony': 'O', 'Walter': 'O'
+    'Nick': 'O', 'Simon': 'C', 'Tony': 'C', 'Walter': 'O'
 }
 df['Grade'] = df['Customer Service Member'].map(agent_grades).fillna(0)
 
 # ── Grade-based service points ──
 grade_service_points = {
-    'Eats'                      : (1.0, 1.0, 1.0, 0),
-    'Truck Parking'             : (0.0, 1.0, 2.0, 0),
-    'Truck Wash'                : (0.0, 1.0, 2.0, 0),
-    'Parts purchase'            : (1.0, 2.0, 3.0, 0),
-    'Tire Replacement'          : (1.0, 1.5, 2.0, 0),
-    'Tire repair'               : (0.0, 1.5, 2.0, 0),
-    'PMs'                       : (0.5, 1.0, 2.0, 0),
-    'DOT inspection'            : (1.0, 2.0, 3.0, 0),
-    'Dealership'                : (1.5, 2.5, 4.0, 0),
-    'RS/Tire Replacement'       : (2.0, 4.0, 6.0, 0),
-    'RS/Mechanical'             : (4.0, 6.0, 8.0, 0),
-    'Towing'                    : (4.0, 7.0, 8.0, 0),
-    'Tire Replacement/PMs'      : (1.0, 2.0, 4.0, 0),
-    'Mechanical'                : (2.0, 3.0, 5.0, 0),
-    'Diagnosting'               : (2.0, 3.0, 5.0, 0),
-    'PMs/Mechanical'            : (4.0, 7.0, 8.0, 0),
-    'Tire Replacement/Mechanical': (4.0, 7.0, 8.0, 0),
+    'Eats'                      : (0.0, 1.0, 1.0, 0),
+    'Truck Parking'             : (0.0, 1.0, 1.0, 0),
+    'Truck Wash'                : (0.0, 1.0, 1.0, 0),
+    'Parts purchase'            : (1.0, 2.0, 2.0, 0),
+    'Tire Replacement'          : (1.0, 1.5, 1.5, 0),
+    'Tire repair'               : (0.0, 1.5, 1.5, 0),
+    'PMs'                       : (0.5, 1.0, 1.0, 0),
+    'DOT inspection'            : (1.0, 2.0, 2.0, 0),
+    'Dealership'                : (1.0, 2.5, 2.5, 0),
+    'RS/Tire Replacement'       : (2.0, 3.0, 3.0, 0),
+    'RS/Mechanical'             : (3.0, 4.0, 4.0, 0),
+    'Towing'                    : (5.0, 6.0, 6.0, 0),
+    'Tire Replacement/PMs'      : (0.5, 1.5, 1.5, 0),
+    'Mechanical'                : (1.5, 2.5, 2.5, 0),
+    'Diagnosting'               : (1.0, 2.0, 2.0, 0),
+    'PMs/Mechanical'            : (2.0, 4.0, 4.0, 0),
+    'Tire Replacement/Mechanical': (2.0, 4.0, 4.0, 0),
 }
 df['Points_A'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*4)[0])
 df['Points_B'] = df['Service type'].map(lambda x: grade_service_points.get(x, (np.nan,)*4)[1])
